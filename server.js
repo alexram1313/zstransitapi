@@ -9,6 +9,7 @@ app.get('/:sys', function (req, res) {
     var fs = require('fs');
     var systems = JSON.parse(fs.readFileSync('systems.json', 'utf8'));
     var sys = req.params.sys;
+    res.writeHead(200, {"Content-Type": "application/json"});
     res.send(JSON.stringify(systems[sys]));
 })
 
