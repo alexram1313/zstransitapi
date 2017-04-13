@@ -9,7 +9,7 @@ app.get('/:system', function (req, res) {
    var fs = require('fs');
     var obj = JSON.parse(fs.readFileSync('systems.json', 'utf8'));
     var system = req.params.system;
-    res.send("System: " + system + "<br/>System URL: " + obj[system].url);
+    res.send("<html><head><title>Derp</title></head><body>System: " + system + "<br/>System URL: " + obj[system].url + "</body></html>");
 })
 
 var server = app.listen(process.env.PORT || 8080, function () {
