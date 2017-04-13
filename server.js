@@ -4,7 +4,7 @@ var app = express();
 function getSystem(sys){
     var fs = require('fs');
     var systems = JSON.parse(fs.readFileSync('systems.json', 'utf8'));
-    return systems[sys].type;
+    return systems[sys];
 }
 
 
@@ -13,19 +13,24 @@ app.get('/', function (req, res) {
 })
 
 app.get('/:sys', function (req, res) {
-    var fs = require('fs');
-    var systems = JSON.parse(fs.readFileSync('systems.json', 'utf8'));
-    var sys = req.params.sys;
-    res.writeHead(200, {"Content-Type": "application/json"});
-    res.end(JSON.stringify(systems[sys]));
+    const sys = require('./' + getSystemType(req.params.sys));
+    reg['url'] = sys.url;
+    app.use('/:sys', sys.type);
+    // var fs = require('fs');
+    // var systems = JSON.parse(fs.readFileSync('systems.json', 'utf8'));
+    // var sys = req.params.sys;
+    // res.writeHead(200, {"Content-Type": "application/json"});
+    // res.end(JSON.stringify(systems[sys]));
 })
 
-app.get('/:sys/routes', function (req, res) {
-    var sys = req.params.sys;
-    var type = getSystem(sys);
-    // res.writeHead(200, {"Content-Type": "application/json"});
-    res.end(type);
-})
+// app.get('/:sys/routes', function (req, res) {
+
+
+//     // var sys = req.params.sys;
+//     // var type = getSystem(sys);
+//     // // res.writeHead(200, {"Content-Type": "application/json"});
+//     // res.end(type);
+// })
 
 var server = app.listen(process.env.PORT || 8080, function () {
    var host = server.address().address
