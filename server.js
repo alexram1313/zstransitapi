@@ -10,7 +10,7 @@ app.get('/:sys', function (req, res) {
     var systems = JSON.parse(fs.readFileSync('systems.json', 'utf8'));
     var sys = req.params.sys;
     res.writeHead(200, {"Content-Type": "application/json"});
-    res.send(JSON.stringify(systems[sys]));
+    res.end(JSON.stringify(systems[sys]));
 })
 
 var server = app.listen(process.env.PORT || 8080, function () {
