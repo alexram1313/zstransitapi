@@ -13,7 +13,7 @@ function getSystem(sys){
 
 
 app.get('/', function (req, res) {
-   res.end('Hello World');
+   res.send('Hello World');
 })
 
 app.get('/:sys', function (req, res) {
