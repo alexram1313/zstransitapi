@@ -8,7 +8,7 @@ app.get('/', function (req, res) {
 app.get('/:system', function (req, res) {
    var fs = require('fs');
     var obj = JSON.parse(fs.readFileSync('systems.json', 'utf8'));
-    var system = req.params.system
+    var system = req.params.system;
     res.send("System: " + system + "\n" + JSON.stringify(obj));
 })
 
