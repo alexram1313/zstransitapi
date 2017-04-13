@@ -13,9 +13,10 @@ app.get('/', function (req, res) {
 })
 
 app.get('/:sys', function (req, res) {
-    const sys = require('./' + getSystemType(req.params.sys));
-    reg['url'] = sys.url;
-    app.use('/', sys.type);
+    var system = getSystem(sys);
+    const sysPage = require('./' + system.type);
+    reg['url'] = system.url;
+    app.use('/', sysPage);
     // var fs = require('fs');
     // var systems = JSON.parse(fs.readFileSync('systems.json', 'utf8'));
     // var sys = req.params.sys;
