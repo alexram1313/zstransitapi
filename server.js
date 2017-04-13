@@ -5,12 +5,11 @@ app.get('/', function (req, res) {
    res.send('Hello World');
 })
 
-app.get('/:system', function (req, res) {
-   var fs = require('fs');
-    var obj = JSON.parse(fs.readFileSync('systems.json', 'utf8'));
-    var system = req.params.system;
-    
-    res.send(JSON.stringify(obj[system]));
+app.get('/:sys', function (req, res) {
+    var fs = require('fs');
+    var systems = JSON.parse(fs.readFileSync('systems.json', 'utf8'));
+    var sys = req.params.sys;
+    res.send(JSON.stringify(systems[sys]));
 })
 
 var server = app.listen(process.env.PORT || 8080, function () {
