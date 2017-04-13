@@ -1,6 +1,10 @@
 var express = require('express');
 var app = express();
 
+process.on('uncaughtException', function(err) {
+  console.log(err);
+});
+
 function getSystem(sys){
     var fs = require('fs');
     var systems = JSON.parse(fs.readFileSync('systems.json', 'utf8'));
