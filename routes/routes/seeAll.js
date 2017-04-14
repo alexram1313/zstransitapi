@@ -5,16 +5,19 @@ function getAllRoutes_Syncromatics(url){
 }
 
 module.exports = (req, res) => {
-  const sysinfo = getSystem.getSystem(req.params.sys);
-
   console.log("hi!");
-  switch(sysinfo['type']){
-      case "syncromatics":
-        res.status(200).json(getAllRoutes_Syncromatics(sysinfo['url']));
-        break;
-      case "default":
-        res.status(200).json({ "Nope":"Nope" });
-        break;
 
-  }
+  if (req.sys != null)
+    switch(req.sys['type']){
+        case "syncromatics":
+            res.status(200).json(getAllRoutes_Syncromatics(req.sys['url']));
+            break;
+        case "default":
+            res.status(200).json({ "Nope":"Nope" });
+            break;
+
+    }
+    else{
+        res.status(404).json({ "Error":"Not a registered transit system" });
+    }
 };

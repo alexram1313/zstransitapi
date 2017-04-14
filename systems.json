@@ -1,5 +1,6 @@
 {
     "uci":{
+        "fullname":"Anteater Express",
         "url":"https://ucishuttles.com",
         "type":"syncromatics"
     }
