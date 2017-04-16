@@ -2,11 +2,13 @@
     "uci":{
         "fullname":"Anteater Express",
         "url":"ucishuttles.com",
-        "type":"syncromatics"
+        "type":"syncromatics",
+        "appname":"ZotStops"
     },
     "kyw":{
         "fullname":"Key West Transit",
         "url":"kwtransit.com",
-        "type":"syncromatics"
+        "type":"syncromatics",
+        "appname":"N/A"
     }
 }
