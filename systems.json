@@ -1,7 +1,12 @@
 {
     "uci":{
         "fullname":"Anteater Express",
-        "url":"https://ucishuttles.com",
+        "url":"ucishuttles.com",
+        "type":"syncromatics"
+    },
+    "kyw":{
+        "fullname":"Key West Transit",
+        "url":"kwtransit.com",
         "type":"syncromatics"
     }
 }
