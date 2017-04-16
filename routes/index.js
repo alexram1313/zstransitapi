@@ -4,7 +4,7 @@ const transitroutes = require('./routes')
 routes.use('/:sys', transitroutes);
 
 routes.get('/', (req, res) => {
-  res.status(200).json({ message: 'Connected!' });
+  res.status(200).json({ Message: 'Connected to ZSTransitAPI' });
   console.log("lol");
 });
 
