@@ -1,4 +1,3 @@
-const getSystem = require('../util/getSystem.js');
 
 function getAllRoutes_Syncromatics(res, url){
     var https = require('https');
