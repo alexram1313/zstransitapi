@@ -76,6 +76,9 @@ module.exports = (req, res) => {
 
   if (req.sys != null)
     switch(req.sys['type']){
+        case "gtfs-rt":
+            res.status(400).json({ "Message":"GTFS support coming soon" });
+            break;
         case "syncromatics":
             console.log(req.sys['url']);
             getAllRoutes_Syncromatics(res, req.sys['url'])
