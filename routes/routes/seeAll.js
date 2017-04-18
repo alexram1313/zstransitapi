@@ -1,3 +1,5 @@
+const routeinfo = require('express').Router({ mergeParams: true });
+const routefiles = require("./route")
 
 function getAllRoutes_Syncromatics(res, url){
     var https = require('https');
@@ -70,7 +72,9 @@ function getAllRoutes_Syncromatics(res, url){
      https.request(options, callback).end();
 }
 
-module.exports = (req, res) => {
+routeinfo.use('/:rt', routefiles);
+
+routeinfo.get('/', (req, res) => {
   console.log("hi!");
 
   if (req.sys != null)
@@ -90,4 +94,6 @@ module.exports = (req, res) => {
     else{
         res.status(404).json({ "Error":"Not a registered transit system" });
     }
-};
+});
+
+module.exports = routeinfo;

@@ -8,7 +8,7 @@ transitroutes.use(function (req, res, next) {
     next();
 });
 
-transitroutes.get('/routes', seeAll);
+transitroutes.use('/routes', seeAll);
 
 transitroutes.get('/', (req, res) => {
     if (req.sys != null)
